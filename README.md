@@ -15,7 +15,7 @@ LLM annotated feedback interface - WIP
     <img alt="Twitter" src="https://img.shields.io/twitter/url.svg?label=%40lohxt&style=social&url=https%3A%2F%2Ftwitter.com%2Flohxt" />
   </a>
 <p align="center" style="font-weight:400;font-size:20px;">
-  Modular LLM interface components for providing feedback.
+  Modular components for providing LLM output feedback.
 </p>
 </div>
 
