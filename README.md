@@ -1,10 +1,12 @@
+~ UNDER HEAVY DEVELOPMENT ~
+
 ![made-with-python](https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square)
 
 <div align="center" >
 <img align="center" src="https://lohxt1.github.io/_assets/hf11.png" alt="hf11"/>
 <img align="center" src="https://lohxt1.github.io/_assets/hf12.png" alt="hf12"/>
 <h1>
-LLM annotated feedback interface
+LLM annotated feedback interface - WIP
 </h1>
   <a href="https://github.com/trpc/trpc/blob/main/LICENSE">
     <img alt="MIT License" src="https://img.shields.io/github/license/trpc/trpc" />
