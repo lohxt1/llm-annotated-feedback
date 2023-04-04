@@ -1,15 +1,13 @@
 import { NextPage } from "next";
-import Scene from "@/containers/three/scene";
+import Leftbar from "@/containers/leftbar";
+import Rightbar from "@/containers/rightbar";
 import { cn } from "@/utils/tailwind";
 
 const Home: NextPage = () => {
   return (
-    <div
-      className={cn(
-        "flex h-[100%] w-screen items-center justify-center align-middle",
-      )}
-    >
-      <Scene />
+    <div className={cn("flex h-[100%] w-screen flex-row")}>
+      <Leftbar />
+      <Rightbar />
     </div>
   );
 };

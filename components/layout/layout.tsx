@@ -11,13 +11,13 @@ const Layout: React.FC<Props> = (props) => (
   <div>
     <div
       className={cn(
-        "h-screen",
-        "bg-white text-black dark:bg-black dark:text-white",
+        "min-h-screen",
+        "bg-white text-black dark:bg-[#0007] dark:text-white",
       )}
     >
       <Header />
       {props.children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   </div>
 );

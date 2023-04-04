@@ -15,11 +15,10 @@ const Header: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex w-fit justify-end",
-        "mb-5 px-5 py-5",
-        "absolute",
-        "right-0 top-0",
-        // "border-b border-slate-900",
+        "flex w-screen justify-end",
+        // "mb-5 px-5 py-5",
+        "relative",
+        "border-b border-slate-100 dark:border-slate-900",
       )}
     >
       <div
@@ -27,7 +26,7 @@ const Header: React.FC = () => {
           "flex h-14 w-fit items-center justify-between align-middle md:min-w-[1/3] lg:min-w-[1/4]",
           // "md:w-1/2",
           // "rounded-full border border-slate-900",
-          "px-5",
+          // "px-5",
           "dark:border-white",
           "z-10",
         )}
@@ -44,13 +43,13 @@ const Header: React.FC = () => {
             <label className={cn("text-sm", "underline decoration-dashed")}>
               stranger
             </label> */}
-            <GithubStar />
+            {/* <GithubStar /> */}
             <a
               href="https://lohxt.space"
               target="_blank"
               className={cn("text-sm", "underline decoration-dashed")}
             >
-              lohxt.space
+              {/* lohxt.space */}
             </a>
           </div>
           <button
