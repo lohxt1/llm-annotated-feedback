@@ -11,9 +11,6 @@ LLM annotated feedback interface - WIP
   <a href="https://github.com/trpc/trpc/blob/main/LICENSE">
     <img alt="MIT License" src="https://img.shields.io/github/license/trpc/trpc" />
   </a>
-  <a href="https://twitter.com/lohxt">
-    <img alt="Twitter" src="https://img.shields.io/twitter/url.svg?label=%40lohxt&style=social&url=https%3A%2F%2Ftwitter.com%2Flohxt" />
-  </a>
 <p align="center" style="font-weight:400;font-size:20px;">
   Modular components for providing LLM output feedback.
 </p>
