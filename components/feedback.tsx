@@ -60,7 +60,7 @@ const Feedback = () => {
 
   return (
     <div className="mt-2 flex w-full flex-col border-t border-gray-100 p-4 dark:border-gray-900">
-      {_grouped.length > 0 ? (
+      {Array.isArray(_grouped) && _grouped.length > 0 ? (
         <>
           <div className="flex flex-row text-xs">
             <label className="mr-1 text-slate-300 underline decoration-dashed dark:text-slate-500">
