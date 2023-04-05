@@ -1,10 +1,22 @@
-import { useSelectionStore } from "stores/selection";
+import { useFeedbackStore } from "stores/feedback";
 
 const Annotations = () => {
-  const { annotations } = useSelectionStore();
+  const { annotations, deleteAnnotation } = useFeedbackStore();
+
+  const _handleDelete = (idx) => (e) => {
+    deleteAnnotation(idx);
+  };
+
+  if (annotations.length <= 0) return null;
+
   return (
     <div className="align-start flex flex-wrap content-start items-start justify-start border-t border-gray-100 px-4 dark:border-gray-900">
-      {annotations.map((a) => {
+      <div className=" mt-4 flex flex-row text-xs">
+        <label className="mr-1 text-slate-300 underline decoration-dashed dark:text-slate-500">
+          Annotations
+        </label>
+      </div>
+      {annotations.map((a, idx) => {
         const blocks = a.text
           .replace(/[\n\t\r]/g, " ")
           .split(" ")
@@ -25,7 +37,12 @@ const Annotations = () => {
                 <>{blocks[_]}&nbsp;</>
               ))}
             </div>
-            <div className="my-2 ml-2 w-[100px] text-xs">Delete</div>
+            <div
+              className="my-2 ml-2 w-[100px] cursor-pointer text-xs"
+              onClick={_handleDelete(idx)}
+            >
+              Delete
+            </div>
           </div>
         );
       })}

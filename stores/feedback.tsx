@@ -9,9 +9,12 @@ type TagType = {
 interface FeedbackState {
   tag: TagType;
   tags: TagType[];
+  annotations: any;
   setTag: (string) => void;
   addTag: (TagType) => void;
   deleteTag: (number) => void;
+  addAnnotation: (any) => void;
+  deleteAnnotation: (number) => void;
 }
 
 export const useFeedbackStore = create<FeedbackState>()((set) => ({
@@ -27,11 +30,17 @@ export const useFeedbackStore = create<FeedbackState>()((set) => ({
       color: "#37bc9b",
     },
     {
+      label: "Neutral",
+      instruction: "Doesn't matter.",
+      color: "#05f",
+    },
+    {
       label: "Negative",
       instruction: "I want to see less of this.",
       color: "#e9573f",
     },
   ],
+  annotations: [],
   setTag: (val) => {
     set((state) => ({ tag: state.tags.find((_) => _?.label == val) }));
   },
@@ -40,5 +49,13 @@ export const useFeedbackStore = create<FeedbackState>()((set) => ({
   },
   deleteTag: (val) => {
     set((state) => ({ tags: state.tags.filter((_, idx) => idx != val) }));
+  },
+  addAnnotation: (val) => {
+    set((state) => ({ annotations: [...state.annotations, val] }));
+  },
+  deleteAnnotation: (val) => {
+    set((state) => ({
+      annotations: state.annotations.filter((a, idx) => idx != val),
+    }));
   },
 }));

@@ -5,14 +5,14 @@ const useMouseStatus = ({ ref }) => {
   const [isMouseOver, toggleMouseOver] = useState(false);
   const [didMousePass, toggleMousePass] = useState(false);
 
-  const _handleMouseDown = (e) => toggleMouseDown((_) => !_);
-  const _handleMouseUp = (e) => toggleMouseDown((_) => !_);
+  const _handleMouseDown = (e) => toggleMouseDown((_) => true);
+  const _handleMouseUp = (e) => toggleMouseDown((_) => false);
   const _handleMouseOver = (e) => {
-    toggleMousePass((_) => !_);
-    toggleMouseOver((_) => !_);
+    toggleMousePass((_) => true);
+    toggleMouseOver((_) => true);
   };
   const _handleMouseLeave = (e) => {
-    toggleMouseOver((_) => !_);
+    toggleMouseOver((_) => false);
     toggleMouseDown((_) => false);
   };
 
@@ -32,7 +32,11 @@ const useMouseStatus = ({ ref }) => {
     };
   }, [ref]);
 
-  return { isMouseDown, isMouseOver, didMousePass };
+  return {
+    isMouseDown,
+    isMouseOver,
+    didMousePass,
+  };
 };
 
 export default useMouseStatus;

@@ -1,3 +1,4 @@
+import { useFeedbackStore } from "stores/feedback";
 import { useSelectionStore } from "stores/selection";
 import Block from "./block";
 
@@ -16,11 +17,19 @@ const Blocks = () => {
     .filter((_) => _.length > 0);
 
   return (
-    <div className="align-start flex flex-wrap content-start items-start justify-start px-4">
-      {blocks.map((block, idx) => (
-        <Block block={block} idx={idx} />
-      ))}
-    </div>
+    <>
+      <div className="ml-4 mt-4 flex flex-row text-xs">
+        <label className="mr-1 text-slate-300 underline decoration-dashed dark:text-slate-500">
+          Select the text to start tagging
+        </label>
+        <label className="underline"></label>
+      </div>
+      <div className="align-start mb-4 flex flex-wrap content-start items-start justify-start px-4 leading-8">
+        {blocks.map((block, idx) => (
+          <Block block={block} idx={idx} />
+        ))}
+      </div>
+    </>
   );
 };
 

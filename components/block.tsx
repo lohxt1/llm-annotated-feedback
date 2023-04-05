@@ -23,26 +23,27 @@ const Block = ({ block, idx }: { block: string; idx: number }) => {
   const { tag } = useFeedbackStore();
 
   useEffect(() => {
-    if (isWindowMouseDown && isMouseDown && blockStartIdx < 0) {
+    if (isWindowMouseDown && isMouseDown) {
+      console.log(block, idx);
       setBlockStartIdx(idx);
+      setBlockMovingIdx(idx);
     }
+  }, [isMouseDown, isWindowMouseDown, isMouseOver]);
+
+  useEffect(() => {
     if (isWindowMouseDown && isMouseOver && blockStartIdx >= 0) {
       setBlockMovingIdx(idx + 1);
     }
-  }, [
-    isMouseOver,
-    isMouseDown,
-    isWindowMouseDown,
-    blockStartIdx,
-    blockMovingIdx,
-  ]);
+  }, [isMouseOver, isWindowMouseDown, blockStartIdx]);
 
-  const selected = indices.find((_) => _ == idx);
+  const selected = indices.includes(idx);
+
+  console.log(indices, idx, selected);
 
   const highlight = idx > blockStartIdx && idx < blockMovingIdx;
 
   return (
-    <div
+    <span
       className={cn(
         "relative",
         "pr-1",
@@ -54,9 +55,10 @@ const Block = ({ block, idx }: { block: string; idx: number }) => {
       )}
       style={{ background: selected || highlight ? tag?.color : "transparent" }}
     >
-      <div className="absolute top-0 left-0 h-full w-full" ref={ref}></div>
+      <span className="absolute top-0 left-0 h-full w-full" ref={ref}></span>
+      <span></span>
       {block === " " ? "\u00A0" : block}
-    </div>
+    </span>
   );
 };
 

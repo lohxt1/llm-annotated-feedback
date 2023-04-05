@@ -3,7 +3,8 @@ import { useSelectionStore } from "stores/selection";
 
 const AddAnnotation = () => {
   const { tag } = useFeedbackStore();
-  const { text, indices, addAnnotation, resetSelection } = useSelectionStore();
+  const { text, indices, resetSelection } = useSelectionStore();
+  const { addAnnotation } = useFeedbackStore();
   const _handleClick = (e) => {
     addAnnotation({
       text,

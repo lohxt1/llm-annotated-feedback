@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useFeedbackStore } from "stores/feedback";
-import { useSelectionStore } from "stores/selection";
 
 const Feedback = () => {
-  const { annotations } = useSelectionStore();
+  const { annotations } = useFeedbackStore();
   const { tags } = useFeedbackStore();
-  const ref = useRef();
+  const ref = useRef<HTMLTextAreaElement>();
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
@@ -13,6 +12,8 @@ const Feedback = () => {
       setHeight(ref.current.scrollHeight);
     }
   }, [annotations]);
+
+  if (annotations.length <= 0) return null;
 
   const _annotations = annotations.map((_) => {
     const {
@@ -47,7 +48,7 @@ const Feedback = () => {
 
   let grouped = groupBy(_annotations, (a) => a.label);
   let _grouped = Array.from(grouped).reduce(
-    (obj, [key, value]) => Object.assign(obj, { [key]: value }), // Be careful! Maps can have non-String keys; object literals can't.
+    (obj, [key, value]) => Object.assign(obj, { [key]: value }),
     {},
   );
 
@@ -58,16 +59,20 @@ const Feedback = () => {
   }));
 
   return (
-    <div className="mt-4 flex w-full flex-col p-4">
+    <div className="mt-2 flex w-full flex-col border-t border-gray-100 p-4 dark:border-gray-900">
       {_grouped.length > 0 ? (
         <>
-          <label className="text-sm ">Feedback</label>
+          <div className="flex flex-row text-xs">
+            <label className="mr-1 text-slate-300 underline decoration-dashed dark:text-slate-500">
+              Feedback Prompt
+            </label>
+          </div>
           <textarea
             ref={ref}
             style={{
               height: height ? `${height}px` : "auto",
             }}
-            className="h-auto w-full border border-gray-500 bg-transparent p-2"
+            className="mt-4 h-auto w-full border border-gray-500 bg-transparent p-2"
             value={JSON.stringify(_grouped, null, 4)}
           />
         </>

@@ -15,15 +15,18 @@ const Header: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex w-screen justify-end",
+        "flex w-screen justify-center",
         // "mb-5 px-5 py-5",
-        "relative",
+        "fixed top-0 left-0",
         "border-b border-slate-100 dark:border-slate-900",
+        "bg-white text-black dark:bg-[#0007] dark:text-white",
+        "z-10",
       )}
     >
       <div
         className={cn(
-          "flex h-14 w-fit items-center justify-between align-middle md:min-w-[1/3] lg:min-w-[1/4]",
+          "flex h-14 w-full items-center justify-between align-middle md:min-w-[1/3] lg:min-w-[1/4]",
+          "max-w-[800px]",
           // "md:w-1/2",
           // "rounded-full border border-slate-900",
           // "px-5",
@@ -33,8 +36,18 @@ const Header: React.FC = () => {
       >
         <div
           className={cn(
-            "flex w-full items-center justify-between align-middle",
+            "flex w-fit items-center justify-between align-middle",
             " px-2",
+            // "font-medium",
+            "italic underline decoration-wavy",
+          )}
+        >
+          Annotated Prompt Feedback
+        </div>
+        <div
+          className={cn(
+            "flex w-fit items-center justify-between align-middle",
+            " pl-2",
             "font-medium",
           )}
         >
@@ -49,7 +62,7 @@ const Header: React.FC = () => {
               target="_blank"
               className={cn("text-sm", "underline decoration-dashed")}
             >
-              {/* lohxt.space */}
+              lohxt.space
             </a>
           </div>
           <button

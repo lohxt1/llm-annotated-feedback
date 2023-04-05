@@ -6,12 +6,9 @@ interface SelectionState {
   blockStartIdx: number;
   blockMovingIdx: number;
   indices: number[];
-  annotations: any;
   setIndices: (number) => void;
   setBlockStartIdx: (number) => void;
   setBlockMovingIdx: (number) => void;
-  addAnnotation: (any) => void;
-  deleteAnnotation: (number) => void;
   resetSelection: () => void;
 }
 
@@ -28,7 +25,6 @@ export const useSelectionStore = create<SelectionState>()((set) => ({
   blockStartIdx: -1,
   blockMovingIdx: -1,
   indices: [],
-  annotations: [],
   setBlockStartIdx: (val) => {
     set((state) => ({ blockStartIdx: val }));
   },
@@ -53,25 +49,7 @@ export const useSelectionStore = create<SelectionState>()((set) => ({
       return { indices: _indices };
     });
   },
-  addAnnotation: (val) => {
-    set((state) => ({ annotations: [...state.annotations, val] }));
-  },
-  deleteAnnotation: (val) => {
-    set((state) => ({
-      annotations: state.annotations.filter((a, idx) => idx != val),
-    }));
-  },
   resetSelection: () => {
     set((state) => ({ ...initialState }));
   },
 }));
-
-// {
-//     tag: {
-//         label: "Positive",
-//         instruction: "more of this.",
-//         color: "#37bc9b",
-//       },
-//       indices : []
-
-// }

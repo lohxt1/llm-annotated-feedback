@@ -11,7 +11,7 @@ const Layout: React.FC<Props> = (props) => (
   <div>
     <div
       className={cn(
-        "min-h-screen",
+        "mt-14 min-h-screen",
         "bg-white text-black dark:bg-[#0007] dark:text-white",
       )}
     >
