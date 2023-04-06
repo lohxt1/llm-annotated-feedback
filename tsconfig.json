@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@/modules/*": ["modules/*"],
       "@/components/*": ["components/*"],
       "@/containers/*": ["containers/*"],
       "@/pages/*": ["pages/*"],

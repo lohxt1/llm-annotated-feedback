@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { useFeedbackStore } from "stores/feedback";
+import { useFeedbackStore } from "@/modules/annotator/stores/feedback";
 import { RadioGroup, RadioGroupItem } from "@/components/primitives/radioGroup";
 
 const Tags = () => {
-  const { tags, tag, setTag, addTag, deleteTag } = useFeedbackStore();
+  const {
+    tags,
+    tag: selectedTag,
+    setTag,
+    addTag,
+    deleteTag,
+  } = useFeedbackStore();
 
   const [label, setLabel] = useState(null);
   const [instruction, setInstruction] = useState(null);
@@ -30,8 +36,8 @@ const Tags = () => {
         </label>
       </div>
       <RadioGroup
-        defaultValue={tag?.label}
-        value={tag?.label}
+        defaultValue={selectedTag?.label}
+        value={selectedTag?.label}
         onValueChange={_handleTagChange}
         className="flex w-full flex-row flex-wrap"
       >
@@ -83,7 +89,7 @@ const Tags = () => {
           <>
             <div className="ml-2 mt-4 flex flex-row text-xs">
               <label className="mr-1 text-slate-300 underline decoration-dashed dark:text-slate-500">
-                Add new tag
+                Add new selectedTag
               </label>
               <label className="underline"></label>
             </div>

@@ -12,7 +12,7 @@ const Layout: React.FC<Props> = (props) => (
     <div
       className={cn(
         "mt-14 min-h-screen",
-        "bg-white text-black dark:bg-[#0007] dark:text-white",
+        "bg-white text-black dark:bg-[#161616] dark:text-white",
       )}
     >
       <Header />

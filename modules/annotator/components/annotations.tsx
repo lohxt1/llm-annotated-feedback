@@ -1,4 +1,4 @@
-import { useFeedbackStore } from "stores/feedback";
+import { useFeedbackStore } from "@/modules/annotator/stores/feedback";
 
 const Annotations = () => {
   const { annotations, deleteAnnotation } = useFeedbackStore();

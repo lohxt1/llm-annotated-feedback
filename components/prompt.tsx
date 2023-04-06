@@ -1,4 +1,4 @@
-import { useSelectionStore } from "stores/selection";
+import { useSelectionStore } from "@/modules/annotator/stores/selection";
 
 const Prompt = () => {
   const { prompt } = useSelectionStore();

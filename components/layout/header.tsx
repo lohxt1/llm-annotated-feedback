@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         // "mb-5 px-5 py-5",
         "fixed top-0 left-0",
         "border-b border-slate-100 dark:border-slate-900",
-        "bg-white text-black dark:bg-[#0007] dark:text-white",
+        "bg-white text-black dark:bg-[#161616] dark:text-white",
         "z-10",
       )}
     >
